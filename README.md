@@ -1,8 +1,13 @@
 **Stash**
+
 git stash - Stash your changes
+
 git stash push -m "message" - Stash with a message
+
 git stash list - List all stashes
+
 git stash branch <branchname> - Create a branch from a stash
+
 git stash apply - This command restores your most recent stashed changes
 git stash apply stash@{n} - Restore a specific stash from the list
 git stash drop stash@{n} - Delete a specific stash when you no longer need it
