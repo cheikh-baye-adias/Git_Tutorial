@@ -1,0 +1,35 @@
+#edit message of the last existing commit
+git commit --amend -m "ECN EU"
+#
+git log --oneline master..HEAD
+
+#commit the changes to the last existing commit without creating new commit and new message
+git commit --amend --no-edit
+
+# merge multiple Git commits into a single commit(e.g., HEAD~N for the last N commits)
+git rebase -i HEAD~4
+
+#
+git push origin HEAD:refs/for/master
+########kubernetes#######
+kubectl get namespaces
+kubectl get pod -n test
+kubectl port-forward airflow-postgresql-0 5555:5432 -n test
+kubectl port-forward airflow-webserver-844ff55f97-mxl5k 8060:8080 -n test
+Kubectl get pods -n test
+Kubectl describe pod airflow-webserver-844ff55f97-mxl5k -n test
+
+
+#get all K8s clusters
+kubectx
+#Switched to a specific cluster
+kubectx master
+#list all namespaces in a cluster
+kubens #OR :  kubectl get ns
+#Activate a namespace
+kubens gtm-dev2
+#get pods in a namespace
+kubectl get po
+
+#
+kubectl port-forward db-postgresql-0 5555:5432

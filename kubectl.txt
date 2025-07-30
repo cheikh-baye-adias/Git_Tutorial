@@ -1,0 +1,167 @@
+
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\hi>kubectl get namespaces
+NAME              STATUS   AGE
+cert-manager      Active   3y105d
+default           Active   3y106d
+dev               Active   3y104d
+es                Active   2y69d
+kube-node-lease   Active   3y106d
+kube-public       Active   3y106d
+kube-system       Active   3y106d
+monitoring        Active   3y105d
+prod              Active   3y99d
+teleport          Active   366d
+test              Active   3y99d
+
+C:\Users\hi>kubectl get namespaces
+NAME              STATUS   AGE
+cert-manager      Active   3y105d
+default           Active   3y106d
+dev               Active   3y104d
+es                Active   2y69d
+kube-node-lease   Active   3y106d
+kube-public       Active   3y106d
+kube-system       Active   3y106d
+monitoring        Active   3y105d
+prod              Active   3y99d
+teleport          Active   366d
+test              Active   3y99d
+
+C:\Users\hi>kubectl get namespaces
+NAME              STATUS   AGE
+cert-manager      Active   3y105d
+default           Active   3y106d
+dev               Active   3y104d
+es                Active   2y69d
+kube-node-lease   Active   3y106d
+kube-public       Active   3y106d
+kube-system       Active   3y106d
+monitoring        Active   3y105d
+prod              Active   3y99d
+teleport          Active   366d
+test              Active   3y99d
+
+C:\Users\hi>kubectl get pod -n test
+NAME                                 READY   STATUS    RESTARTS   AGE
+airflow-postgresql-0                 1/1     Running   0          239d
+airflow-redis-0                      1/1     Running   0          239d
+airflow-scheduler-84c8867758-pb9kf   2/2     Running   0          239d
+airflow-statsd-fd679cd78-9swtb       1/1     Running   0          239d
+airflow-triggerer-0                  2/2     Running   0          239d
+airflow-webserver-844ff55f97-mxl5k   1/1     Running   0          239d
+airflow-worker-0                     3/3     Running   0          235d
+
+C:\Users\hi>kubectl port-forward airflow-postgresql-0 5555:5432
+Error from server (NotFound): pods "airflow-postgresql-0" not found
+
+C:\Users\hi>kubectl port-forward airflow-postgresql-0 5555:5432 -n test
+Forwarding from 127.0.0.1:5555 -> 5432
+Forwarding from [::1]:5555 -> 5432
+Handling connection for 5555
+Handling connection for 5555
+Handling connection for 5555
+
+C:\Users\hi>kubectl port-forward airflow-webserver-844ff55f97-mxl5k 8060:8080 -n test
+Forwarding from 127.0.0.1:8060 -> 8080
+Forwarding from [::1]:8060 -> 8080
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+E0704 16:20:41.248145   10020 portforward.go:380] "Unhandled Error" err="error creating forwarding stream for port 8060 -> 8080: Timeout occurred"
+E0704 16:20:41.262687   10020 portforward.go:357] "Unhandled Error" err="error creating error stream for port 8060 -> 8080: Timeout occurred"
+Handling connection for 8060
+
+C:\Users\hi>kubectl port-forward airflow-webserver-844ff55f97-mxl5k 8060:8080 -n prod
+Error from server (NotFound): pods "airflow-webserver-844ff55f97-mxl5k" not found
+
+C:\Users\hi>kubectl get pod
+NAME                                                       READY   STATUS    RESTARTS   AGE
+ngx-controller-ingress-nginx-controller-84995bb95c-vmxfq   1/1     Running   0          272d
+
+C:\Users\hi>kubectl get pod -n
+error: flag needs an argument: 'n' in -n
+See 'kubectl get --help' for usage.
+
+C:\Users\hi>kubectl get -n pod
+You must specify the type of resource to get. Use "kubectl api-resources" for a complete list of supported resources.
+
+error: Required resource not specified.
+Use "kubectl explain <resource>" for a detailed description of that resource (e.g. kubectl explain pods).
+See 'kubectl get -h' for help and examples
+
+C:\Users\hi>kubectl get pod -n prod
+NAME                                                              READY   STATUS      RESTARTS         AGE
+airflow-flower-7956d7d455-g9sgw                                   1/1     Running     2 (272d ago)     272d
+airflow-postgresql-0                                              1/1     Running     0                272d
+airflow-redis-0                                                   1/1     Running     0                272d
+airflow-scheduler-5cf49f449f-pdpq9                                3/3     Running     71 (4h28m ago)   272d
+airflow-statsd-75f567fd86-pl2pp                                   1/1     Running     0                272d
+airflow-webserver-7c99946b9b-4zzn4                                1/1     Running     0                272d
+airflow-worker-0                                                  3/3     Running     66 (7m31s ago)   272d
+daily-db-infra-backup-29191680-8zqlk                              0/1     Completed   0                40h
+daily-db-infra-backup-29193120-lr96p                              0/1     Completed   0                16h
+db-postgresql-0                                                   1/1     Running     0                118d
+keycloak-0                                                        1/1     Running     0                272d
+keycloak-postgresql-0                                             1/1     Running     0                272d
+monthly-db-infra-backup-29145600-zb9xc                            0/1     Completed   0                33d
+monthly-db-infra-backup-29188800-kgm9t                            0/1     Completed   0                3d16h
+postgres-exporter-prometheus-postgres-exporter-75bb8bb9db-xv7n8   1/1     Running     0                272d
+superset-554d4c4866-d6smr                                         1/1     Running     0                272d
+superset-postgresql-0                                             1/1     Running     0                272d
+superset-redis-master-0                                           1/1     Running     0                272d
+superset-worker-685f747989-kkkjc                                  1/1     Running     0                272d
+weekly-db-infra-backup-29175840-mj6nv                             0/1     Completed   0                12d
+weekly-db-infra-backup-29185920-zmrfb                             0/1     Completed   0                5d16h
+
+C:\Users\hi>kubectl port-forward airflow-webserver-7c99946b9b-4zzn4 8060:8080 -n prod
+Forwarding from 127.0.0.1:8060 -> 8080
+Forwarding from [::1]:8060 -> 8080
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+Handling connection for 8060
+
+C:\Users\hi>kubectl port-forward airflow-webserver-7c99946b9b-4zzn4 8060:8080 -n prod
